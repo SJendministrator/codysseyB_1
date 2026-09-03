@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Portfolio</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- JavaScript -->
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ==============================
+         Header / Navigation
+    ============================== -->
+    <header id="header">
+        <nav class="navbar">
+
+            <!-- Logo -->
+            <a href="#hero" class="logo">
+                My Portfolio
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button
+                type="button"
+                class="menu-toggle"
+                aria-label="메뉴 열기"
+            >
+                ☰
+            </button>
+
+            <!-- Navigation Menu -->
+            <ul class="nav-menu">
+                <li>
+                    <a href="#hero">Home</a>
+                </li>
+                <li>
+                    <a href="#about">About</a>
+                </li>
+                <li>
+                    <a href="#skills">Skills</a>
+                </li>
+                <li>
+                    <a href="#projects">Projects</a>
+                </li>
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+            </ul>
+
+            <!-- Dark Mode Button -->
+            <button
+                type="button"
+                class="theme-toggle"
+                aria-label="다크 모드 전환"
+            >
+                🌙
+            </button>
+
+        </nav>
+    </header>
+
+
+    <!-- ==============================
+         Main Content
+    ============================== -->
+    <main>
+
+        <!-- ==========================
+             Hero
+        =========================== -->
+        <section id="hero" class="hero">
+
+            <div class="hero-content">
+                <p class="hero-subtitle">
+                    Hello, I'm
+                </p>
+
+                <h1>
+                    Your Name
+                </h1>
+
+                <p class="hero-description">
+                    개발자를 꿈꾸며 공부하고 있습니다.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn">
+                        View Projects
+                    </a>
+
+                    <a href="#contact" class="btn">
+                        Contact
+                    </a>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- ==========================
+             About
+        =========================== -->
+        <section id="about" class="about">
+
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+
+            <div class="about-content">
+
+                <div class="about-image">
+                    <img
+                        src="images/profile.jpg"
+                        alt="프로필 이미지"
+                    >
+                </div>
+
+                <div class="about-text">
+                    <p>
+                        안녕하세요.
+                        웹 개발을 공부하고 있는 개발자입니다.
+                    </p>
+
+                    <p>
+                        새로운 기술을 배우고 직접 만들어보는 것을 좋아합니다.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================
+             Skills
+        =========================== -->
+        <section id="skills" class="skills">
+
+            <div class="section-title">
+                <h2>Skills</h2>
+            </div>
+
+            <div class="skills-list">
+
+                <article class="skill-card">
+                    <h3>HTML</h3>
+                    <p>Semantic Web Structure</p>
+                </article>
+
+                <article class="skill-card">
+                    <h3>CSS</h3>
+                    <p>Responsive Layout & Styling</p>
+                </article>
+
+                <article class="skill-card">
+                    <h3>JavaScript</h3>
+                    <p>DOM & Event Handling</p>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================
+             Projects
+        =========================== -->
+        <section id="projects" class="projects">
+
+            <div class="section-title">
+                <h2>Projects</h2>
+                <p>
+                    GitHub API를 통해 프로젝트를 불러옵니다.
+                </p>
+            </div>
+
+            <!-- API 상태 메시지 -->
+            <div class="project-status">
+                프로젝트를 불러오는 중...
+            </div>
+
+            <!-- GitHub Project Cards -->
+            <div class="project-list">
+                <!-- JavaScript에서 동적으로 생성 -->
+            </div>
+
+            <!-- Retry Button -->
+            <button
+                type="button"
+                class="retry-button"
+            >
+                다시 시도
+            </button>
+
+        </section>
+
+
+        <!-- ==========================
+             Contact
+        =========================== -->
+        <section id="contact" class="contact">
+
+            <div class="section-title">
+                <h2>Contact</h2>
+            </div>
+
+            <form id="contact-form" novalidate>
+
+                <!-- Name -->
+                <div class="form-group">
+                    <label for="name">
+                        이름
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="이름을 입력하세요"
+                    >
+
+                    <small class="error-message"></small>
+                </div>
+
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">
+                        이메일
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="example@email.com"
+                    >
+
+                    <small class="error-message"></small>
+                </div>
+
+
+                <!-- Message -->
+                <div class="form-group">
+                    <label for="message">
+                        메시지
+                    </label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="5"
+                        placeholder="메시지를 입력하세요"
+                    ></textarea>
+
+                    <small class="error-message"></small>
+                </div>
+
+
+                <!-- Submit -->
+                <button type="submit" class="submit-button">
+                    Send
+                </button>
+
+                <!-- 성공 메시지 -->
+                <p
+                    id="form-success"
+                    class="success-message"
+                ></p>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==============================
+         Footer
+    ============================== -->
+    <footer id="footer">
+
+        <p>
+            &copy; 2026 Your Name. All rights reserved.
+        </p>
+
+        <div class="social-links">
+            <a href="#" target="_blank">GitHub</a>
+            <a href="#" target="_blank">LinkedIn</a>
+        </div>
+
+    </footer>
+
+
+    <!-- ==============================
+         Scroll To Top
+    ============================== -->
+    <button
+        type="button"
+        id="scroll-top"
+        class="scroll-top"
+        aria-label="맨 위로 이동"
+    >
+        ↑
+    </button>
+
+</body>
+</html>
