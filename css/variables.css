@@ -1,0 +1,25 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #222222;
+    --primary-color: #4a90e2;
+    --secondary-color: #f5f7fa;
+    --border-color: #dddddd;
+
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    --max-width: 1200px;
+
+    --spacing-small: 0.5rem;
+    --spacing-medium: 1rem;
+    --spacing-large: 2rem;
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #eeeeee;
+    --primary-color: #6ea8fe;
+    --secondary-color: #1e1e1e;
+    --border-color: #333333;
+
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,60 @@
+# ==============================
+# OS
+# ==============================
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+Desktop.ini
+
+# macOS
+.DS_Store
+
+
+# ==============================
+# Editors
+# ==============================
+
+# VS Code
+.vscode/
+
+# JetBrains
+.idea/
+
+
+# ==============================
+# Logs
+# ==============================
+
+*.log
+
+
+# ==============================
+# Temporary files
+# ==============================
+
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+
+# ==============================
+# Environment / Secrets
+# ==============================
+
+.env
+.env.*
+!.env.example
+
+
+# ==============================
+# Node.js (혹시 나중에 사용한다면)
+# ==============================
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*

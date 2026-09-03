@@ -1,0 +1,34 @@
+/* Tablet */
+@media (min-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    section {
+        padding: 7rem 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        padding: 1rem;
+        background-color: var(--bg-color);
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+}

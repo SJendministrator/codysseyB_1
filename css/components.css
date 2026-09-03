@@ -1,0 +1,105 @@
+/* Header / Navigation */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 70px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+/* Hero */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+/* About */
+.about-content {
+    display: grid;
+    gap: 2rem;
+}
+
+/* Skills */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.skill-card {
+    padding: 1.5rem;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: var(--card-shadow);
+}
+
+/* Projects */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Contact */
+.contact-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Scroll Top */
+.scroll-top {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    display: none;
+}
+
+.scroll-top.show {
+    display: block;
+}
