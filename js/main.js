@@ -14,7 +14,32 @@ navToggle.addEventListener("click", () => {
 // Dark Mode
 // ==============================
 
-// 여기에 다크 모드 코드
+const themeToggle = document.querySelector(".theme-toggle");
+const html = document.documentElement;
+
+themeToggle.addEventListener("click", () => {
+    const isDark = html.getAttribute("data-theme") === "dark";
+
+    if (isDark) {
+        // Dark → Light
+        html.setAttribute("data-theme", "light");
+
+        themeToggle.textContent = "🌙";
+        themeToggle.setAttribute(
+            "aria-label",
+            "다크 모드로 전환"
+        );
+    } else {
+        // Light → Dark
+        html.setAttribute("data-theme", "dark");
+
+        themeToggle.textContent = "☀️";
+        themeToggle.setAttribute(
+            "aria-label",
+            "라이트 모드로 전환"
+        );
+    }
+});
 
 
 // ==============================

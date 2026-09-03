@@ -1,34 +1,55 @@
-/* Tablet */
+/* ==============================
+   Tablet
+============================== */
+
 @media (min-width: 768px) {
-    .about-content {
-        grid-template-columns: 1fr 1fr;
-    }
-}
 
-/* Desktop */
-@media (min-width: 1024px) {
-    section {
-        padding: 7rem 0;
-    }
-}
+    /* Navigation */
 
-@media (max-width: 767px) {
     .nav-toggle {
-        display: block;
+        display: none;
     }
 
     .nav-menu {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        display: none;
-        flex-direction: column;
-        padding: 1rem;
-        background-color: var(--bg-color);
+        position: static;
+
+        display: flex;
+        flex-direction: row;
+
+        align-items: center;
+
+        gap: 1.5rem;
+
+        padding: 0;
+
+        border: none;
     }
 
-    .nav-menu.active {
-        display: flex;
+    .nav-menu a {
+        padding: 0;
+    }
+
+
+    /* About */
+
+    .about-content {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+}
+
+
+/* ==============================
+   Desktop
+============================== */
+
+@media (min-width: 1024px) {
+
+    section {
+        padding: 7rem 0;
+    }
+
+    .nav-menu {
+        gap: 2rem;
     }
 }
