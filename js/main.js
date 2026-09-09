@@ -60,7 +60,22 @@ themeToggle.addEventListener("click", () => {
 // GitHub API
 // ==============================
 
-// 여기에 GitHub API 코드
+const githubUsername = "SJendministrator";
+const apiUrl = `https://api.github.com/users/${githubUsername}/repos`;
+
+const fetchRepositories = async () => {
+    const response = await fetch(apiUrl);
+    const repos = await response.json();
+
+    const firstRepo = repos[0];
+
+    console.log(firstRepo.name);
+    console.log(firstRepo.description);
+    console.log(firstRepo.language);
+    console.log(firstRepo.html_url);
+};
+
+fetchRepositories();
 
 
 // ==============================
