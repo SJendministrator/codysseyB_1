@@ -1,7 +1,4 @@
-/* ==============================
-   Tablet
-============================== */
-
+/* Tablet */
 @media (min-width: 768px) {
 
     /* Navigation */
@@ -30,6 +27,14 @@
     }
 
 
+    /* Hero */
+
+    .hero-buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+
     /* About */
 
     .about-content {
@@ -39,10 +44,7 @@
 }
 
 
-/* ==============================
-   Desktop
-============================== */
-
+/* Desktop */
 @media (min-width: 1024px) {
 
     section {
@@ -51,5 +53,22 @@
 
     .nav-menu {
         gap: 2rem;
+    }
+}
+
+
+/* Mobile */
+@media (max-width: 767px) {
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 320px;
+        text-align: center;
     }
 }
