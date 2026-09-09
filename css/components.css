@@ -13,7 +13,6 @@
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
 
     position: relative;
 }
@@ -55,6 +54,8 @@
 .nav-toggle {
     display: block;
 
+    margin-left: auto;
+
     border: none;
     background: transparent;
 
@@ -65,6 +66,8 @@
 }
 
 .theme-toggle {
+    margin-left: 0.5rem;
+
     border: none;
     background: transparent;
 
@@ -77,14 +80,57 @@
 /* Hero */
 .hero {
     min-height: 100vh;
+
     display: flex;
     align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.hero-content {
+    width: 100%;
+}
+
+.hero-subtitle {
+    margin-bottom: 1rem;
+}
+
+.hero h1 {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+
+.hero-description {
+    margin-bottom: 1.5rem;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
 }
 
 /* About */
 .about-content {
     display: grid;
     gap: 2rem;
+}
+
+.about-image img {
+    display: block;
+
+    width: 180px;
+    height: 180px;
+
+    margin: 0 auto;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    box-shadow: var(--card-shadow);
 }
 
 /* Skills */

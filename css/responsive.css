@@ -1,7 +1,15 @@
-/* Tablet */
+/* ==============================
+   Tablet
+============================== */
+
 @media (min-width: 768px) {
 
     /* Navigation */
+
+    .navbar {
+        justify-content: center;
+        gap: 2rem;
+    }
 
     .nav-toggle {
         display: none;
@@ -17,6 +25,7 @@
 
         gap: 1.5rem;
 
+        margin-left: 0;
         padding: 0;
 
         border: none;
@@ -24,6 +33,10 @@
 
     .nav-menu a {
         padding: 0;
+    }
+
+    .theme-toggle {
+        margin-left: 0;
     }
 
 
@@ -44,7 +57,10 @@
 }
 
 
-/* Desktop */
+/* ==============================
+   Desktop
+============================== */
+
 @media (min-width: 1024px) {
 
     section {
@@ -57,7 +73,10 @@
 }
 
 
-/* Mobile */
+/* ==============================
+   Mobile
+============================== */
+
 @media (max-width: 767px) {
 
     .hero-buttons {
