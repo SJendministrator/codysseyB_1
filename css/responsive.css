@@ -1,26 +1,89 @@
 @media (min-width: 768px) {
-    .navbar { gap: 1.75rem; }
-    .nav-toggle { display: none; }
-    .nav-menu { position: static; display: flex; flex: 1; flex-direction: row; justify-content: flex-end; gap: 1.5rem; margin-left: auto; padding: 0; border: 0; background: transparent; box-shadow: none; }
-    .nav-menu a { padding: .45rem 0; }
-    .theme-toggle { margin-left: .25rem; }
-    .about-content { grid-template-columns: minmax(220px, .7fr) 1.3fr; align-items: center; gap: 4rem; }
-    .submit-button { width: fit-content; min-width: 180px; }
+  .navbar {
+    gap: 1.75rem;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-menu {
+    position: static;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    margin-left: auto;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .nav-menu a {
+    padding: 0.45rem 0;
+  }
+
+  .theme-toggle {
+    margin-left: 0.25rem;
+  }
+
+  .about-content {
+    grid-template-columns: minmax(220px, 0.7fr) 1.3fr;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .submit-button {
+    width: fit-content;
+    min-width: 180px;
+  }
 }
 
 @media (min-width: 1024px) {
-    section { padding: 7rem 0; }
-    .hero-buttons { gap: 1rem; }
-    .skills-list { gap: 1.35rem; }
-    .project-list { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.35rem; }
+  section {
+    padding: 7rem 0;
+  }
+
+  .hero-buttons {
+    gap: 1rem;
+  }
+
+  .skills-list {
+    gap: 1.35rem;
+  }
+
+  .project-list {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.35rem;
+  }
 }
 
 @media (max-width: 767px) {
-    .hero-buttons { flex-direction: column; align-items: stretch; max-width: 320px; margin: auto; }
-    .hero-buttons .btn { width: 100%; }
-    .project-card__top { align-items: flex-start; flex-direction: column; }
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 320px;
+    margin: auto;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  .project-card__top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
