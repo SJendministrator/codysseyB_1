@@ -1,0 +1,39 @@
+# Vanilla JavaScript Portfolio
+
+순수 HTML, CSS, JavaScript로 만든 반응형 개인 포트폴리오입니다. 프레임워크나 UI 라이브러리 없이 이벤트, 상태, DOM 렌더링의 연결을 직접 구현했습니다.
+
+## 배포 URL
+
+GitHub Pages를 활성화한 뒤 다음 주소에서 확인할 수 있습니다.
+
+`https://SJendministrator.github.io/<repository-name>/`
+
+> GitHub 저장소의 **Settings → Pages**에서 `main` 브랜치와 `/ (root)`를 선택해 배포합니다. 저장소 이름에 맞춰 위 URL의 `<repository-name>`을 교체하세요.
+
+## 스크린샷
+
+GitHub Pages 배포 후 데스크톱·모바일·다크 모드 화면을 캡처해 이 섹션에 추가합니다.
+
+## 사용 기술
+
+- HTML5 시맨틱 마크업: `header`, `nav`, `main`, `section`, `article`, `footer`
+- CSS3: CSS 변수, Flexbox 내비게이션, Grid 프로젝트 카드, 모바일 퍼스트 미디어 쿼리
+- Vanilla JavaScript (ES6+): DOM 선택, 이벤트 리스너, 템플릿 리터럴, 구조 분해, `map`/`filter`/`forEach`
+- GitHub REST API: 공개 저장소 목록을 동적으로 렌더링
+
+## 주요 기능과 상태 흐름
+
+1. **테마** — 토글 클릭 → `localStorage` 테마 상태 변경 → `data-theme` CSS 변수 렌더링. 새로고침 후에도 설정이 유지됩니다.
+2. **프로젝트** — API 요청 → loading/success/error/empty 상태 변경 → 상태 메시지와 프로젝트 카드 UI 렌더링. 오류 시 재시도할 수 있습니다.
+3. **문의 폼** — 입력/제출 이벤트 → 필수값 및 이메일 형식 유효성 상태 변경 → 필드 주변의 오류 또는 성공 메시지 렌더링.
+4. **내비게이션** — 햄버거 클릭 → `active` 클래스 상태 변경 → 모바일 메뉴 표시/숨김. 앵커 클릭은 부드러운 스크롤로 연결됩니다.
+5. **스크롤 UI** — 스크롤 위치 → 헤더/맨 위 버튼 클래스 변경 → 60px에서 헤더 스타일, 300px에서 맨 위 버튼을 표시합니다.
+6. **스크롤 애니메이션** — `IntersectionObserver`가 섹션 진입을 감지하면 `is-visible` 클래스를 적용합니다. Observer `threshold`는 `0.2`입니다.
+
+## 로컬 실행
+
+1. 저장소를 VS Code에서 엽니다.
+2. Live Server 확장으로 `index.html`을 실행합니다.
+3. 최신 Chrome에서 반응형 레이아웃과 GitHub API 동작을 확인합니다.
+
+GitHub API는 인증 없이 시간당 60회까지 요청할 수 있습니다. 제한에 도달하거나 네트워크 오류가 발생하면 Projects 섹션이 오류 메시지와 재시도 버튼을 표시합니다.
