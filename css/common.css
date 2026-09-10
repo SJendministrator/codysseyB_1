@@ -1,79 +1,10 @@
-/* ==============================
-   Body
-============================== */
-
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-
-    font-family: var(--font-main);
-    font-size: var(--font-size-normal);
-    line-height: 1.6;
-
-    transition:
-        background-color 0.3s,
-        color 0.3s;
-}
-
-
-/* ==============================
-   Container
-============================== */
-
-.container {
-    width: 90%;
-    max-width: var(--max-width);
-    margin: 0 auto;
-}
-
-
-/* ==============================
-   Section
-============================== */
-
-section {
-    padding: 5rem 0;
-}
-
-
-/* ==============================
-   Section Title
-============================== */
-
-.section-title {
-    margin-bottom: var(--spacing-large);
-    text-align: center;
-}
-
-.section-title h2 {
-    font-family: var(--font-pixel);
-    font-size: var(--font-size-title);
-}
-
-
-/* ==============================
-   Buttons
-============================== */
-
-.btn {
-    display: inline-block;
-
-    padding: 0.75rem 1.5rem;
-
-    border-radius: 8px;
-
-    background-color: var(--primary-color);
-    color: white;
-
-    font-family: var(--font-pixel);
-    font-size: var(--font-size-small);
-
-    transition:
-        transform 0.2s,
-        box-shadow 0.2s;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--card-shadow);
-}
+body { background: var(--bg-color); color: var(--text-color); font-family: var(--font-main); font-size: var(--font-size-normal); line-height: 1.7; transition: background-color .3s, color .3s; }
+.container { width: min(90%, var(--max-width)); margin: 0 auto; }
+section { padding: 5rem 0; scroll-margin-top: 74px; }
+.section-title { max-width: 640px; margin: 0 auto var(--spacing-large); text-align: center; }
+.section-title h2 { margin-bottom: .85rem; font-family: var(--font-pixel); font-size: var(--font-size-title); line-height: 1.45; }
+.section-title p { color: var(--muted-color); }
+.btn, .submit-button, .retry-button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: .8rem 1.1rem; border: 1px solid var(--primary-color); border-radius: 10px; background: var(--primary-color); color: #fff; cursor: pointer; font-weight: 700; transition: transform .2s, box-shadow .2s, background-color .2s; }
+.btn:hover, .submit-button:hover, .retry-button:hover { transform: translateY(-3px); box-shadow: var(--card-shadow); background: var(--primary-dark); }
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }

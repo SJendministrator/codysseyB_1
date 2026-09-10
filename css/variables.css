@@ -1,62 +1,37 @@
 :root {
-    /* ==============================
-       Font
-    ============================== */
-
     --font-pixel: "Press Start 2P", monospace;
-    --font-main: Arial, sans-serif;
-
-
-    /* ==============================
-       Colors
-    ============================== */
-
-    --bg-color: #ffffff;
-    --text-color: #222222;
-    --primary-color: #4a90e2;
-    --secondary-color: #f5f7fa;
-    --border-color: #dddddd;
-
-
-    /* ==============================
-       Shadow
-    ============================== */
-
-    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-
-
-    /* ==============================
-       Layout
-    ============================== */
-
-    --max-width: 1200px;
-
-
-    /* ==============================
-       Spacing
-    ============================== */
-
+    --font-main: "Pretendard", "Noto Sans KR", Arial, sans-serif;
+    --bg-color: #f8fafc;
+    --surface-color: #ffffff;
+    --text-color: #172033;
+    --muted-color: #64748b;
+    --primary-color: #3d5afe;
+    --primary-dark: #2844df;
+    --secondary-color: #eef2ff;
+    --border-color: #dbe3f0;
+    --danger-color: #d14343;
+    --success-color: #15803d;
+    --card-shadow: 0 14px 35px rgba(32, 49, 92, 0.1);
+    --max-width: 1120px;
     --spacing-small: 0.5rem;
     --spacing-medium: 1rem;
     --spacing-large: 2rem;
-
-
-    /* ==============================
-       Typography
-    ============================== */
-
-    --font-size-small: 0.8rem;
+    --font-size-small: 0.72rem;
     --font-size-normal: 1rem;
     --font-size-large: 1.5rem;
-    --font-size-title: 2rem;
+    --font-size-title: clamp(1.65rem, 4vw, 2.25rem);
 }
 
 [data-theme="dark"] {
-    --bg-color: #121212;
-    --text-color: #eeeeee;
-    --primary-color: #6ea8fe;
-    --secondary-color: #1e1e1e;
-    --border-color: #333333;
-
-    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --bg-color: #0b1020;
+    --surface-color: #131b31;
+    --text-color: #edf2ff;
+    --muted-color: #a8b4cf;
+    --primary-color: #9baeff;
+    --primary-dark: #bdc9ff;
+    --secondary-color: #1b2748;
+    --border-color: #2a395d;
+    --danger-color: #ff9b9b;
+    --success-color: #81e6a4;
+    --card-shadow: 0 18px 42px rgba(0, 0, 0, 0.3);
 }

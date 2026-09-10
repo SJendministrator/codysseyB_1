@@ -1,403 +1,93 @@
 <!DOCTYPE html>
 <html lang="ko" data-theme="dark">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>My Portfolio</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-        rel="stylesheet"
-    >
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <!-- JavaScript -->
-    <script src="js/main.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="순수 HTML, CSS, JavaScript로 만든 반응형 개발자 포트폴리오입니다.">
+  <title>Jin's Portfolio | Front-end Learner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
 </head>
-
 <body>
-
-    <!-- ==============================
-         Header / Navigation
-    ============================== -->
-    <header id="header" class="header">
-
-        <nav class="navbar container">
-
-            <!-- Logo -->
-            <a href="#hero" class="logo">
-                My Portfolio
-            </a>
-
-
-            <!-- Mobile Menu Button -->
-            <button
-                type="button"
-                class="nav-toggle"
-                aria-label="메뉴 열기"
-                aria-expanded="false"
-            >
-                ☰
-            </button>
-
-
-            <!-- Navigation Menu -->
-            <ul class="nav-menu">
-
-                <li>
-                    <a href="#hero">Home</a>
-                </li>
-
-                <li>
-                    <a href="#about">About</a>
-                </li>
-
-                <li>
-                    <a href="#skills">Skills</a>
-                </li>
-
-                <li>
-                    <a href="#projects">Projects</a>
-                </li>
-
-                <li>
-                    <a href="#contact">Contact</a>
-                </li>
-
-            </ul>
-
-
-            <!-- Theme Toggle -->
-            <button
-                type="button"
-                class="theme-toggle"
-                aria-label="라이트 모드로 전환"
-            >
-                ☀️
-            </button>
-
-        </nav>
-
-    </header>
-
-
-    <!-- ==============================
-         Main Content
-    ============================== -->
-    <main>
-
-        <!-- ==========================
-             Hero
-        =========================== -->
-        <section id="hero" class="hero">
-
-            <div class="container hero-content">
-
-                <p class="hero-subtitle">
-                    Hello, I'm
-                </p>
-
-                <h1>
-                    Your Name
-                </h1>
-
-                <p class="hero-description">
-                    개발자를 꿈꾸며 공부하고 있습니다.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <a href="#projects" class="btn">
-                        View Projects
-                    </a>
-
-                    <a href="#contact" class="btn">
-                        Contact
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==========================
-             About
-        =========================== -->
-        <section id="about" class="about">
-
-            <div class="container">
-
-                <div class="section-title">
-                    <h2>About Me</h2>
-                </div>
-
-                <div class="about-content">
-
-                    <div class="about-image">
-                        <img
-                            src="images/profile.jpg"
-                            alt="프로필 이미지"
-                        >
-                    </div>
-
-                    <div class="about-text">
-
-                        <p>
-                            안녕하세요.
-                            웹 개발을 공부하고 있는 개발자입니다.
-                        </p>
-
-                        <p>
-                            새로운 기술을 배우고 직접 만들어보는 것을 좋아합니다.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==========================
-             Skills
-        =========================== -->
-        <section id="skills" class="skills">
-
-            <div class="container">
-
-                <div class="section-title">
-                    <h2>Skills</h2>
-                </div>
-
-                <div class="skills-list">
-
-                    <article class="skill-card">
-                        <h3>HTML</h3>
-                        <p>Semantic Web Structure</p>
-                    </article>
-
-                    <article class="skill-card">
-                        <h3>CSS</h3>
-                        <p>Responsive Layout & Styling</p>
-                    </article>
-
-                    <article class="skill-card">
-                        <h3>JavaScript</h3>
-                        <p>DOM & Event Handling</p>
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==========================
-             Projects
-        =========================== -->
-        <section id="projects" class="projects">
-
-            <div class="container">
-
-                <div class="section-title">
-
-                    <h2>Projects</h2>
-
-                    <p>
-                        GitHub API를 통해 프로젝트를 불러옵니다.
-                    </p>
-
-                </div>
-
-
-                <!-- API 상태 메시지 -->
-                <div
-                    class="project-status"
-                    aria-live="polite"
-                >
-                    프로젝트를 불러오는 중...
-                </div>
-
-
-                <!-- GitHub Project Cards -->
-                <div class="project-list">
-                    <!-- JavaScript에서 동적으로 생성 -->
-                </div>
-
-
-                <!-- Retry Button -->
-                <button
-                    type="button"
-                    class="retry-button"
-                >
-                    다시 시도
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==========================
-             Contact
-        =========================== -->
-        <section id="contact" class="contact">
-
-            <div class="container">
-
-                <div class="section-title">
-                    <h2>Contact</h2>
-                </div>
-
-
-                <form
-                    id="contact-form"
-                    novalidate
-                >
-
-                    <!-- Name -->
-                    <div class="form-group">
-
-                        <label for="name">
-                            이름
-                        </label>
-
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            placeholder="이름을 입력하세요"
-                        >
-
-                        <small class="error-message"></small>
-
-                    </div>
-
-
-                    <!-- Email -->
-                    <div class="form-group">
-
-                        <label for="email">
-                            이메일
-                        </label>
-
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="example@email.com"
-                        >
-
-                        <small class="error-message"></small>
-
-                    </div>
-
-
-                    <!-- Message -->
-                    <div class="form-group">
-
-                        <label for="message">
-                            메시지
-                        </label>
-
-                        <textarea
-                            id="message"
-                            name="message"
-                            rows="5"
-                            placeholder="메시지를 입력하세요"
-                        ></textarea>
-
-                        <small class="error-message"></small>
-
-                    </div>
-
-
-                    <!-- Submit -->
-                    <button
-                        type="submit"
-                        class="submit-button"
-                    >
-                        Send
-                    </button>
-
-
-                    <!-- Success Message -->
-                    <p
-                        id="form-success"
-                        class="success-message"
-                        aria-live="polite"
-                    ></p>
-
-                </form>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- ==============================
-         Footer
-    ============================== -->
-    <footer id="footer" class="footer">
-
-        <div class="container">
-
-            <p>
-                &copy; 2026 Your Name. All rights reserved.
-            </p>
-
-            <div class="social-links">
-
-                <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    GitHub
-                </a>
-
-                <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    LinkedIn
-                </a>
-
-            </div>
-
+  <header id="header" class="header">
+    <nav class="navbar container" aria-label="주요 메뉴">
+      <a href="#hero" class="logo">JIN.DEV</a>
+      <button type="button" class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false"></button>
+      <ul class="nav-menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button type="button" class="theme-toggle" aria-label="라이트 모드로 전환" title="라이트 모드로 전환">☀</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="hero" aria-labelledby="hero-title">
+      <div class="container hero-content">
+        <p class="hero-kicker">01 / HELLO, WORLD!</p>
+        <h1 id="hero-title">Ideas into<br><span>working web.</span></h1>
+        <p class="hero-description">사용자의 작은 행동도 의미 있는 화면 변화로 연결하는 프론트엔드 개발자를 목표로 공부하고 있습니다.</p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn">프로젝트 보기</a>
+          <a href="#contact" class="btn btn--outline">함께 이야기하기</a>
         </div>
+      </div>
+    </section>
 
-    </footer>
+    <section id="about" class="about" aria-labelledby="about-title">
+      <div class="container reveal">
+        <div class="section-title"><h2 id="about-title">About me</h2></div>
+        <div class="about-content">
+          <figure class="about-image"><img src="images/profile.jpg" alt="노트북을 사용하는 개발자 프로필 사진"></figure>
+          <div class="about-text">
+            <p><strong>안녕하세요, 웹의 동작 원리를 좋아하는 개발자입니다.</strong> 구조가 분명한 HTML, 읽기 쉬운 CSS, 사용자 행동에 반응하는 JavaScript를 차근차근 익히고 있습니다.</p>
+            <p>단순히 보기 좋은 화면을 넘어, 로딩·오류·성공 같은 서비스의 모든 상태를 사용자에게 자연스럽게 전달하는 경험을 만들고 싶습니다.</p>
+            <div class="about-facts"><span>Semantic HTML</span><span>Mobile first</span><span>Problem solver</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section id="skills" class="skills" aria-labelledby="skills-title">
+      <div class="container reveal">
+        <div class="section-title"><h2 id="skills-title">Skills</h2><p>기초를 단단하게 쌓으며 매일 결과물을 만듭니다.</p></div>
+        <div class="skills-list">
+          <article class="skill-card"><span class="skill-card__number">01</span><h3>HTML</h3><p>의미를 전달하는 시맨틱 마크업과 접근성을 고려해 페이지를 구조화합니다.</p></article>
+          <article class="skill-card"><span class="skill-card__number">02</span><h3>CSS</h3><p>Flexbox와 Grid를 조합하고, 모바일 우선 반응형 레이아웃을 만듭니다.</p></article>
+          <article class="skill-card"><span class="skill-card__number">03</span><h3>JavaScript</h3><p>이벤트, DOM, 비동기 통신으로 상태 변화가 보이는 인터랙션을 구현합니다.</p></article>
+        </div>
+      </div>
+    </section>
 
-    <!-- ==============================
-         Scroll To Top
-    ============================== -->
-    <button
-        type="button"
-        id="scroll-top"
-        class="scroll-top"
-        aria-label="맨 위로 이동"
-    >
-        ↑
-    </button>
+    <section id="projects" class="projects" aria-labelledby="projects-title">
+      <div class="container reveal">
+        <div class="section-title"><h2 id="projects-title">Projects</h2><p>GitHub API에서 최신 저장소를 불러옵니다. 포크와 보관된 저장소는 제외했습니다.</p></div>
+        <div class="project-status" aria-live="polite">프로젝트를 불러오는 중...</div>
+        <div class="project-list" aria-live="polite"></div>
+        <button type="button" class="retry-button" hidden>다시 시도</button>
+      </div>
+    </section>
 
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <div class="container reveal">
+        <div class="section-title"><h2 id="contact-title">Contact</h2><p>새로운 아이디어나 협업 이야기를 들려주세요.</p></div>
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="form-group"><label for="name">이름</label><input type="text" id="name" name="name" placeholder="이름을 입력하세요" aria-describedby="name-error"><small id="name-error" class="error-message"></small></div>
+          <div class="form-group"><label for="email">이메일</label><input type="email" id="email" name="email" placeholder="example@email.com" aria-describedby="email-error"><small id="email-error" class="error-message"></small></div>
+          <div class="form-group"><label for="message">메시지</label><textarea id="message" name="message" rows="6" placeholder="메시지를 입력하세요" aria-describedby="message-error"></textarea><small id="message-error" class="error-message"></small></div>
+          <button type="submit" class="submit-button">메시지 보내기</button>
+          <p id="form-success" class="success-message" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container"><p>© 2026 Jin. Built with vanilla HTML, CSS & JavaScript.</p><div class="social-links"><a href="https://github.com/SJendministrator" target="_blank" rel="noopener noreferrer">GitHub</a><a href="mailto:hello@example.com">Email</a></div></div></footer>
+  <button type="button" id="scroll-top" class="scroll-top" aria-label="맨 위로 이동">↑</button>
 </body>
-
 </html>
