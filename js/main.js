@@ -114,6 +114,17 @@ const projectStatus = document.querySelector(".project-status");
 const projectList = document.querySelector(".project-list");
 const retryButton = document.querySelector(".retry-button");
 
+// API Content Safety: GitHub text → escaped card markup
+const escapeHtml = (value = "") => String(value).replace(/[&<>'"]/g, (character) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    "'": "&#39;",
+    "\"": "&quot;"
+}[character]));
+
+const getSafeRepositoryUrl = (url) => url?.startsWith("https://github.com/") ? url : "https://github.com/";
+
 const renderProjects = (state, repositories = []) => {
     projectList.innerHTML = "";
     retryButton.hidden = state !== "error";
@@ -136,8 +147,10 @@ const renderProjects = (state, repositories = []) => {
     projectStatus.textContent = `${repositories.length}개의 프로젝트를 표시하고 있습니다.`;
     projectList.innerHTML = repositories.map((repository) => {
         const { name, description, language, html_url: url, stargazers_count: stars } = repository;
-        const safeDescription = description || "프로젝트 설명이 아직 등록되지 않았습니다.";
-        const languageLabel = language || "Code";
+        const safeDescription = escapeHtml(description || "프로젝트 설명이 아직 등록되지 않았습니다.");
+        const languageLabel = escapeHtml(language || "Code");
+        const repositoryName = escapeHtml(name);
+        const projectUrl = getSafeRepositoryUrl(url);
 
         return `
             <article class="project-card">
@@ -145,9 +158,9 @@ const renderProjects = (state, repositories = []) => {
                     <span>${languageLabel}</span>
                     <span aria-label="스타 ${stars}개">★ ${stars}</span>
                 </div>
-                <h3>${name}</h3>
+                <h3>${repositoryName}</h3>
                 <p>${safeDescription}</p>
-                <a class="project-link" href="${url}" target="_blank" rel="noopener noreferrer">GitHub에서 보기 <span aria-hidden="true">↗</span></a>
+                <a class="project-link" href="${projectUrl}" target="_blank" rel="noopener noreferrer">GitHub에서 보기 <span aria-hidden="true">↗</span></a>
             </article>
         `;
     }).join("");
