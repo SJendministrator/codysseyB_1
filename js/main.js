@@ -195,7 +195,8 @@ fetchRepositories();
 const contactForm = document.querySelector("#contact-form");
 const formSuccess = document.querySelector("#form-success");
 const fields = [...contactForm.querySelectorAll("input, textarea")];
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// Email Rule: ASCII local/domain only → Korean-address format is rejected
+const emailPattern = /^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)+$/;
 
 const validateField = (field) => {
     const errorMessage = field.closest(".form-group").querySelector(".error-message");
