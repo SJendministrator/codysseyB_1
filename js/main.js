@@ -1,5 +1,6 @@
 // ==============================
 // Mobile Navigation: event → class state → menu render
+// Mobile Navigation: event → class state → menu render
 // ==============================
 
 const navToggle = document.querySelector(".nav-toggle");
@@ -13,6 +14,9 @@ const closeMobileMenu = () => {
 };
 
 navToggle.addEventListener("click", () => {
+    const isOpen = navMenu.classList.toggle("active");
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+    navToggle.setAttribute("aria-label", isOpen ? "메뉴 닫기" : "메뉴 열기");
     const isOpen = navMenu.classList.toggle("active");
     navToggle.setAttribute("aria-expanded", String(isOpen));
     navToggle.setAttribute("aria-label", isOpen ? "메뉴 닫기" : "메뉴 열기");
@@ -36,8 +40,41 @@ const renderTheme = (theme) => {
 };
 
 renderTheme(savedTheme || html.getAttribute("data-theme") || "light");
+const savedTheme = localStorage.getItem("portfolio-theme");
+
+const renderTheme = (theme) => {
+    const isDark = theme === "dark";
+
+    html.setAttribute("data-theme", theme);
+    themeToggle.textContent = isDark ? "☀️" : "🌙";
+    themeToggle.setAttribute("aria-label", isDark ? "라이트 모드로 전환" : "다크 모드로 전환");
+};
+
+renderTheme(savedTheme || html.getAttribute("data-theme") || "light");
 
 themeToggle.addEventListener("click", () => {
+    const nextTheme = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+
+    localStorage.setItem("portfolio-theme", nextTheme);
+    renderTheme(nextTheme);
+});
+
+
+// ==============================
+// Smooth Scroll: click event → scroll position update
+// ==============================
+
+navLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+        const targetId = link.getAttribute("href");
+        const targetSection = document.querySelector(targetId);
+
+        if (!targetSection) return;
+
+        event.preventDefault();
+        targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        closeMobileMenu();
+    });
     const nextTheme = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
 
     localStorage.setItem("portfolio-theme", nextTheme);
@@ -86,8 +123,23 @@ renderScrollUi();
 
 // ==============================
 // Reveal Animation: observer state → visible class render
+// Reveal Animation: observer state → visible class render
 // ==============================
 
+const revealTargets = document.querySelectorAll(".section-title, .about-content, .skill-card, .projects .container, .contact .container");
+const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+    });
+}, { threshold: 0.2 });
+
+revealTargets.forEach((target) => {
+    target.classList.add("reveal");
+    revealObserver.observe(target);
+});
 const revealTargets = document.querySelectorAll(".section-title, .about-content, .skill-card, .projects .container, .contact .container");
 const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
@@ -226,6 +278,50 @@ fetchRepositories();
 // ==============================
 // Contact Form: input state → validation and message render
 // ==============================
+
+const contactForm = document.querySelector("#contact-form");
+const formSuccess = document.querySelector("#form-success");
+const fields = [...contactForm.querySelectorAll("input, textarea")];
+// Email Rule: ASCII local/domain only → Korean-address format is rejected
+const emailPattern = /^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)+$/;
+
+const validateField = (field) => {
+    const errorMessage = field.closest(".form-group").querySelector(".error-message");
+    let message = "";
+
+    if (!field.value.trim()) {
+        message = `${field.previousElementSibling.textContent.trim()}을(를) 입력해 주세요.`;
+    } else if (field.type === "email" && !emailPattern.test(field.value.trim())) {
+        message = "올바른 이메일 형식을 입력해 주세요.";
+    }
+
+    field.classList.toggle("is-invalid", Boolean(message));
+    field.setAttribute("aria-invalid", String(Boolean(message)));
+    errorMessage.textContent = message;
+    return !message;
+};
+
+fields.forEach((field) => {
+    field.addEventListener("input", () => {
+        validateField(field);
+        formSuccess.textContent = "";
+    });
+});
+
+contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const isFormValid = fields.map(validateField).every(Boolean);
+
+    if (!isFormValid) {
+        formSuccess.textContent = "입력 내용을 확인해 주세요.";
+        return;
+    }
+
+    const { name } = contactForm.elements;
+    formSuccess.textContent = `${name.value.trim()}님, 메시지가 준비되었습니다. 빠르게 답변드릴게요!`;
+    contactForm.reset();
+    fields.forEach((field) => field.setAttribute("aria-invalid", "false"));
+});
 
 const contactForm = document.querySelector("#contact-form");
 const formSuccess = document.querySelector("#form-success");
