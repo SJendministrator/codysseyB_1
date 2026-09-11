@@ -12,7 +12,13 @@ GitHub Pages를 활성화한 뒤 다음 주소에서 확인할 수 있습니다.
 
 ## 스크린샷
 
-GitHub Pages 배포 후 데스크톱·모바일·다크 모드 화면을 캡처해 이 섹션에 추가합니다.
+| 데스크톱 라이트 | 데스크톱 다크 |
+| --- | --- |
+| ![데스크톱 라이트 모드](images/desktop_light.png) | ![데스크톱 다크 모드](images/desktop_dark.png) |
+
+| 모바일 라이트 | 모바일 다크 | 모바일 메뉴 |
+| --- | --- | --- |
+| ![모바일 라이트 모드](images/mobile_light.png) | ![모바일 다크 모드](images/mobile_dark.png) | ![모바일 메뉴](images/mobile_menu.png) |
 
 
 ## 요구 사항 검증 현황
@@ -24,7 +30,7 @@ GitHub Pages 배포 후 데스크톱·모바일·다크 모드 화면을 캡처�
 | GitHub API 로딩·성공·오류·빈 상태 | 구현 완료 / 실 API 확인 보류 | 코드에 모든 상태와 재시도 버튼이 있으며, 이 실행 환경의 프록시 403으로 GitHub API 실호출은 확인하지 못했습니다. |
 | 문의 폼 검증 | 구현 완료 | 이름·이메일·메시지의 required, 이메일 정규식, 필드 근처 오류 메시지, 성공 메시지를 확인했습니다. |
 | GitHub Pages 실제 URL | 미완료 | 이 저장소에는 원격 저장소 또는 Pages 배포 URL이 설정되어 있지 않아 실제 주소를 검증할 수 없습니다. |
-| 데스크톱·모바일·다크 모드 스크린샷 | 미완료 | 브라우저 자동화 도구 설치가 환경의 패키지 프록시 403으로 차단되었습니다. 배포 후 직접 캡처해 이 README에 추가해야 합니다. |
+| 데스크톱·모바일·다크 모드 스크린샷 | 완료 | `images/`의 데스크톱·모바일·다크 모드·모바일 메뉴 캡처를 README 스크린샷 섹션에 추가했습니다. |
 
 ## 사용 기술
 
@@ -49,3 +55,33 @@ GitHub Pages 배포 후 데스크톱·모바일·다크 모드 화면을 캡처�
 3. 최신 Chrome에서 반응형 레이아웃과 GitHub API 동작을 확인합니다.
 
 GitHub API는 인증 없이 시간당 60회까지 요청할 수 있습니다. 제한에 도달하거나 네트워크 오류가 발생하면 Projects 섹션이 오류 메시지와 재시도 버튼을 표시합니다.
+
+## GitHub API 콘솔 점검
+
+브라우저에서 페이지를 연 후 **F12 → Console**에서 아래 명령어를 실행하면 GitHub API 연동 상태를 확인하거나, UI의 성공·빈 결과·실패 상태를 의도적으로 재현할 수 있습니다. 모든 명령어는 페이지 메모리와 Projects 영역만 변경하며 GitHub 저장소의 데이터는 수정하지 않습니다.
+
+```js
+// 현재 상태와 마지막 요청 오류를 확인합니다.
+portfolioDebug.github.status()
+
+// 실제 GitHub API를 다시 요청합니다. 성공하면 state는 "success"가 됩니다.
+portfolioDebug.github.reload()
+
+// API 응답을 기다리지 않고 성공 카드 UI를 재현합니다.
+portfolioDebug.github.simulateSuccess()
+
+// 공개 저장소가 없는 경우의 빈 결과 UI를 재현합니다.
+portfolioDebug.github.simulateEmpty()
+
+// 존재하지 않는 GitHub 사용자 API를 요청해 404 실패 UI를 의도적으로 재현합니다.
+portfolioDebug.github.requestNotFound()
+```
+
+`reload()` 또는 `requestNotFound()`는 Promise를 반환하므로, 완료된 뒤 상태를 확인하려면 다음처럼 실행합니다.
+
+```js
+await portfolioDebug.github.reload()
+portfolioDebug.github.status()
+```
+
+정상 연동에서는 `status()`의 `state`가 `success`이고 Projects 영역에 저장소 카드가 표시됩니다. `requestNotFound()` 뒤에는 `state`가 `error`이며 `lastError`에 `GitHub API request failed: 404`가 표시되고, 화면에는 재시도 버튼이 나타납니다. 테스트 후 실제 데이터를 다시 불러오려면 `portfolioDebug.github.reload()` 또는 화면의 **다시 시도** 버튼을 사용하세요.

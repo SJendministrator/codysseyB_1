@@ -113,6 +113,16 @@ const apiUrl = `https://api.github.com/users/${githubUsername}/repos?sort=update
 const projectStatus = document.querySelector(".project-status");
 const projectList = document.querySelector(".project-list");
 const retryButton = document.querySelector(".retry-button");
+let githubApiState = "idle";
+let lastGithubApiError = null;
+
+const debugRepository = {
+    name: "github-api-debug-success",
+    description: "브라우저 콘솔에서 GitHub API 성공 상태를 확인하기 위한 샘플 저장소입니다.",
+    language: "JavaScript",
+    html_url: "https://github.com/",
+    stargazers_count: 1
+};
 
 // API Content Safety: GitHub text → escaped card markup
 const escapeHtml = (value = "") => String(value).replace(/[&<>'"]/g, (character) => ({
@@ -126,6 +136,7 @@ const escapeHtml = (value = "") => String(value).replace(/[&<>'"]/g, (character)
 const getSafeRepositoryUrl = (url) => url?.startsWith("https://github.com/") ? url : "https://github.com/";
 
 const renderProjects = (state, repositories = []) => {
+    githubApiState = state;
     projectList.innerHTML = "";
     retryButton.hidden = state !== "error";
 
@@ -166,11 +177,12 @@ const renderProjects = (state, repositories = []) => {
     }).join("");
 };
 
-const fetchRepositories = async () => {
+const fetchRepositories = async (requestUrl = apiUrl) => {
     renderProjects("loading");
+    lastGithubApiError = null;
 
     try {
-        const response = await fetch(apiUrl, { headers: { Accept: "application/vnd.github+json" } });
+        const response = await fetch(requestUrl, { headers: { Accept: "application/vnd.github+json" } });
 
         if (!response.ok) throw new Error(`GitHub API request failed: ${response.status}`);
 
@@ -179,12 +191,35 @@ const fetchRepositories = async () => {
 
         renderProjects("success", publicRepositories);
     } catch (error) {
+        lastGithubApiError = error;
         console.error(error);
         renderProjects("error");
     }
 };
 
 retryButton.addEventListener("click", fetchRepositories);
+
+// Browser Console Debug: API 상태를 재현하거나 현재 상태를 확인하는 개발용 명령어
+// 사용법은 README의 "GitHub API 콘솔 점검" 섹션을 참고합니다.
+window.portfolioDebug = Object.freeze({
+    github: Object.freeze({
+        status: () => ({
+            state: githubApiState,
+            lastError: lastGithubApiError?.message ?? null
+        }),
+        reload: () => fetchRepositories(),
+        simulateSuccess: () => {
+            lastGithubApiError = null;
+            renderProjects("success", [debugRepository]);
+        },
+        simulateEmpty: () => {
+            lastGithubApiError = null;
+            renderProjects("success", []);
+        },
+        requestNotFound: () => fetchRepositories("https://api.github.com/users/this-user-does-not-exist-portfolio-debug/repos")
+    })
+});
+
 fetchRepositories();
 
 
