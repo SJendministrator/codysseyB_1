@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Press+Start+2P&display=swap"
         rel="stylesheet"
     >
 
@@ -106,7 +106,7 @@
                 </p>
 
                 <h1>
-                    Your Name
+                    박수정
                 </h1>
 
                 <p class="hero-description">
@@ -181,7 +181,7 @@
                     <h2>Skills</h2>
                 </div>
 
-                <div class="skills-list">
+                <div class="skills-list skills-grid">
 
                     <article class="skill-card">
                         <h3>HTML</h3>
@@ -233,7 +233,7 @@
 
 
                 <!-- GitHub Project Cards -->
-                <div class="project-list">
+                <div class="project-list projects-grid">
                     <!-- JavaScript에서 동적으로 생성 -->
                 </div>
 
@@ -242,6 +242,7 @@
                 <button
                     type="button"
                     class="retry-button"
+                    hidden
                 >
                     다시 시도
                 </button>
@@ -265,6 +266,7 @@
 
                 <form
                     id="contact-form"
+                    class="contact-form"
                     novalidate
                 >
 
@@ -280,9 +282,11 @@
                             id="name"
                             name="name"
                             placeholder="이름을 입력하세요"
+                            required
+                            aria-describedby="name-error"
                         >
 
-                        <small class="error-message"></small>
+                        <small id="name-error" class="error-message"></small>
 
                     </div>
 
@@ -299,9 +303,11 @@
                             id="email"
                             name="email"
                             placeholder="example@email.com"
+                            required
+                            aria-describedby="email-error"
                         >
 
-                        <small class="error-message"></small>
+                        <small id="email-error" class="error-message"></small>
 
                     </div>
 
@@ -318,9 +324,11 @@
                             name="message"
                             rows="5"
                             placeholder="메시지를 입력하세요"
+                            required
+                            aria-describedby="message-error"
                         ></textarea>
 
-                        <small class="error-message"></small>
+                        <small id="message-error" class="error-message"></small>
 
                     </div>
 
@@ -358,7 +366,7 @@
         <div class="container">
 
             <p>
-                &copy; 2026 Your Name. All rights reserved.
+                &copy; 2026 박수정. All rights reserved.
             </p>
 
             <div class="social-links">
